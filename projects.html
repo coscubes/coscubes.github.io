@@ -1,153 +1,44 @@
 <!DOCTYPE html>
 <html>
-<style>
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #333;
-    overflow: hidden;
-    top: 0%;
-    
-    position: relative;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+    body {
+        font-family: 'Roboto';
+        margin-left: 350px;
+        margin-right: 350px;
+        margin-top: 0px;
+        padding: 0;
+        background-color:white;
+    }
+    h1{
+        margin: 0
+    }
+    </style>
     <title>Kaustubh Sakhalkar</title>
-<body rightmargin="150px" leftmargin="150px" style="background-color: rgb(255, 255, 255);">
-<font face='helvetica'>
-     <div class="topnav">
-        <a href="index.html" align='center'>Home</a>
-        <a href="projects.html" class="active"  align='center'>Projects</a>
-        <a href="publications.html"  align='center'>Publications</a>
-        <a href="contact.html"  align='center'>Contact</a>
-        <a href="resume.html"  align='center'>CV</a>
-        <a href="https://github.com/sakhalkark" target="_blank">Github</a>
+</head>
+<body>
+    <div style="background-color:white;font-size: 22px">
+        <img src="Me.jpg" style="float:left;width:264px;height:264px;padding-right: 30px">
+        <br>
+        <br>
+        <h1>Kaustubh Sakhalkar</h1>
+        <br>
+        Computer Vision Engineer<br>
+        DreamVu Inc, Hyderabad.<br>   
+        <br>
+        <br>
+        <a href="https://github.com/sakhalkark"><img src="logos/github.png" style="padding-right: 5px;"></a>
+        <a href="https://www.linkedin.com/in/kaustubh-sakhalkar-191871b9/"><img src="logos/in.png" style="padding-right:5px"></a>
+        <a href="https://www.facebook.com/kaustubh.sakhalkar"><img src="logos/fb.png" style="height:32px;width:32px;padding-right:5px"></a>
+        <a href="https://www.instagram.com/the_convolution/"><img src="logos/insta.png" style="height:32px;width:32px;padding-right:5px"></a>
+        <a href="https://twitter.com/kaustubhsakhal1"><img src="logos/twitter.png" style="height:32px;width:32px;padding-right:5px"></a>
+        <a href="https://scholar.google.co.in/citations?user=6ElPOFAAAAAJ&hl=en&oi=ao"><img src="logos/scholar.png" style="height:32px;width:32px;padding-right:5px"></a>
+
     </div>
-    <br><br><br><br><br>
-    
-    <!-- Main body of the page -->
-    <p style="text-align: justify">
-        <b>Improving optical flow representations for 3D convolutions (INRIA)</b><br>
-        Proposed a separable convolutional block instead of 3D convolutions for video classification by separating the 
-        spatial and temporal convolutions [(2+1)D]. Represented the optical flow as magnitude and orientation in
-        HSV colour space to represent flow (temporal) information. Showed that it improved results for I3D network
-        and improved upon the state of the art. Also conducted abalation studies with frame selection in videos for
-        video representations.
-    </p>
-
-
-    <p style="text-align:justify">
-        <b>Featuring the features for action recognition (INRIA)</b><br>
-        Studying the contribution of using multiple video cues for representing appearance, short-term and pose based motion to 
-        reach a high action recognition rate. Proposed a two level
-        fusion strategy to combine the features from different cues to address False positives and negatives of similar actions 
-        which are common in action recognition by conditional binary
-        classifier to disambiguate them ensuring a sequential refinement of action labels. We use ResNet152 features for appearance,
-        Improved dense trajectories for short term motion and skeleton with LSTM for long term motion.
-        We validate our approach on four public datasets, CAD-60, CAD-120, MSRDailyActivity3D and NTU-RGB+D 
-        improving the state-of-the-art results on them. 
-    </p> 
-
-    <p style="text-align:justify">
-        <b>Spatio-temporal Action grids (INRIA)</b><br>
-        Addressing the challenge of spatio-temporal relationship in videos for action recognition. 
-        Introducing grids in the spatial domain as well as temporal domain for spatio-temporal modeling of features 
-        To represent temporal information, we divide the action sequence into temporal segments termed as temporal grids. 
-        Cross subject variance is targetted by applying clustering on the appearance features and velocity 
-        features to partition the temporal segments. This ensures consistency of the temporal segments for modeling the actions. 
-        Results were competitive with the state of the art for four datasets.
-    </p>
-
-    <p style="text-align:justify">  
-        <b>Document Image Binarization (ISI Kolkata) </b><br>
-        Proposed a novel method for degraded document image binarization using a convolutional autoencoder with
-        skip connections and ensembling of three global and local thresholding methods. 
-        Learned weighted voting for the decisions from three pipelines to obtain a binary decison for each pixel.
-        Patch to patch binarization technique for document page.
-        Achieved an average F-measure of 90.18 on DIBCO datasets within 1% of the state of the art 
-        but on a wider range of document problems.
-        Involved in independent research at the handwriting recognition lab.
-        To the best of my knowledge this was the first time deep learning was used for document binarization.
-    </p>
-
-    <p style="text-align:justify">
-        <b>European Rover Challenge (VIT) (2016) <a href="http://roverchallenge.eu/" style="text-decoration:none">[web]</a></b><br>
-        Developed a stereo camera visual odometry system for the rover using disparity maps and 
-        feature matching algorithm also developed the control interface using Qt GUI tools. 
-        Our team was finally placed 20<sup>th</sup> globally and 2<sup>nd</sup> in Asia.
-    </p>
-
-    <p style="text-align:justify">
-        <b>Human activity recognition using 3D convolutions (VIT)</b><br>
-        Implemented a C3D like 3D convolutional neural network in keras and trained it on KTH and weizmann datasets.
-        Compared it with hand crafted techniques like dense trajectories, HOG, STIP.
-        Achieved State of the art results on the two datasets.
-    </p>
-
-    <p style="text-align:justify">
-        <b>Gesture Controlled Interface for Electronic Appliances (Gesture Research International)</b><br>
-        Developed an API for hand gesture recognition and tracking in real time for microcontrollers. The API
-        was subsequently used by the company in a product controlling electrical appliances. 
-    </p>
-    
-    <h2>Older Projects</h2>
-    <p style="text-align:justify">
-        <b>Real time upper body pose estimation using MS Kinect</b><br>
-        Estimated the pose of the human upper body by applying distance transform and contours to the depth image and
-        using anthropometric ratios of the human body.
-    </p>
-
-    <p style="text-align:justify">
-        <b>Facial Emotion recognition</b><br>
-        Evaluated the performance of 20 different classification techniques for emotion recognition. Including
-        CNN, SVM and KNN. Feature descriptors used were facial landmarks, Gabor filters, HOG, LBP and
-        LDP. Achieved 93% accuracy with CNN on Jaffe dataset.
-    </p>
-    <p style="text-align:justify">
-
-    </p>
-    <p style="text-align:justify">
-        <b>Adaptive Skin Segmentation using Histogram back projection</b>
-        The project aimed at adaptive skin colour segmentation by detecting faces. The face was recognized
-        with a viola jones classifier and the region of interest was used in histogram back projection to create
-        a mask of skin pixels in the frame.
-    </p>
-
-    <p style="text-align:justify">
-        <b>Gene study of Gestational Diabetes Mellitus</b><br>
-        Studied and found the most probable genes that cause GDM using the microarray data of the disease
-    using Benjamini Hochberg method. Find the regulation of the genes and their interacting partners. 21
-    genes were recognized to influence diabetes.
-    </p>
-
-    <b>
-        Pedestrian detection using histogram of oriented gradients <br>
-        Restaurant management database system using MySql as backend and PyQt4 GUI design<br>
-        A UNIX shell written in C language with history features<br>
-        File encryption and Decryption using RSA algorithm<br>
-    </b>
-
+    <div>
+        <br>
+        <h1>something</h1>
+    </div>
 </body>
-
 </html>
