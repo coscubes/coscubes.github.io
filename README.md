@@ -1,4 +1,4 @@
-# Erblog
+# WEBSITE UNDER CONSTRUCTION. STAY TUNED FOR MY BLOG
 
 > ⚠️⚠️⚠️ **Note:** Mathjax is not included directly due to the performance considerations now! 
 >
