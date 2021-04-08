@@ -1,0 +1,87 @@
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    /* position: fixed; Set the navbar to fixed position */
+    top: 20px; /* Position the navbar at the top of the page */
+    right: 21%;
+    left: 21%;
+    margin-bottom: 20px;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: large;
+  }
+  
+  /* Change background on mouse-over */
+  .navbar a:hover {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+.navbar a.active {
+    background-color: #4CAF50;
+    color: #333;
+    }
+  
+  /* Main content */
+  .main { /* Add a top margin to avoid content overlay */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    width: 80%;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+  
+
+  /* body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-top: 100px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color:white;
+    font-size: large;
+} */
+
+body{
+    background-color: white;
+    font-family: 'DM Sans', sans-serif;
+    border: 2px solid white;
+    border-radius: 18px;
+    margin-left: 20%;
+    margin-right: 20%;
+    max-width: 1080px;
+    min-width: 256px;
+    padding-top: 20px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  html{
+    background-color: whitesmoke;
+    background-size: 8px 8px;
+}
+
+th, td {
+  padding: 15px;
+}
+
+table.news-table th,td{
+  padding: 2px;
+  padding-right: 20px;
+}
+
+a{
+  text-decoration: none
+}
