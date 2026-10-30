@@ -1,0 +1,27 @@
+{%- comment -%}
+KaTeX, loaded only on pages with `math: true` in their front matter.
+
+Authoring: write `$$ ... $$` in markdown for both inline and display maths.
+kramdown decides which from context — `$$x_t$$` mid-sentence is inline, a
+`$$ ... $$` block on its own lines is display.
+
+Those `$$` never reach the HTML. kramdown parses the maths itself and re-emits
+it in MathJax delimiter form (`\( ... \)` inline, `\[ ... \]` display), which is
+what the delimiters below match. Letting kramdown own the parsing is what keeps
+`x_t` from being eaten as markdown emphasis, so don't try to bypass it.
+{%- endcomment -%}
+{%- if page.math %}
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '\\[', right: '\\]', display: true },
+        { left: '\\(', right: '\\)', display: false }
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+{%- endif %}

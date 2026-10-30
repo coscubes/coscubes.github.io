@@ -1,0 +1,20 @@
+# Talks and teaching, newest first. Rendered at the bottom of publications.md.
+#
+#   - title:  what you spoke about
+#     venue:  where
+#     year:   used for the section heading
+#     links:  optional, e.g. [{name: slides, url: "..."}]
+
+- title: "Seminar talk on hand–object interactions"
+  venue: "GVV, Max Planck Institute for Informatics"
+  year: 2020
+  links:
+    - name: slides
+      url: "https://drive.google.com/file/d/1WVP1KWjPf77Qa9dKBh9WYXLG08ooldKv/view?usp=sharing"
+
+- title: "Learning Deep Representations for Human Action Recognition"
+  venue: "INRIA Sophia Antipolis"
+  year: 2018
+  links:
+    - name: slides
+      url: "https://docs.google.com/presentation/d/1LSVpzSTRCnMZoNg2pgmwFXK9zpLaA1hsZb-YHsaqRH0/edit?usp=sharing"

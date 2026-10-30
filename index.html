@@ -1,193 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Kaustubh Sakhalkar</title>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-</head>
-<body>
-    <div class="navbar">
-        <a href="index.html">About</a>
-        <a href="#Research">Research</a>
-        <a href="#Publications">Publications</a>
-        <a href="#Talks">Teaching / Talks</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Blog">Blog</a>       
-    </div>
+---
+layout: default
+nav_active: /
+# Marks this page and its paginated continuations as the blog index, so the
+# header renders the site title as the page's <h1>.
+is_blog_index: true
+---
+{%- if paginator.posts.size > 0 %}
+<ul class="post-list">
+  {%- for post in paginator.posts %}
+  {%- include post-list-item.html post=post %}
+  {%- endfor %}
+</ul>
 
-   
-    <img src="images/Me.jpg" style="float:right;width:264px;height:264px;padding-left: 30px">
-    <h1 style="font-size: 50px;">Kaustubh Sakhalkar</h1>
-    <h2>
-    MSc Student <br>
-    Saarland University
-    </h2>
-    <h3>
-    sakhalkark [at] gmail [dot] com <br>
-    s8kasakh [at] stud [dot] uni-saarland [dot] de <br>
-    </h3>
+{%- if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Pagination">
+  {%- if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+  {%- else %}<span></span>{%- endif %}
+  <span class="pagination__page">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {%- if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+  {%- else %}<span></span>{%- endif %}
+</nav>
+{%- endif %}
 
-    <a href="https://github.com/sakhalkark"><img src="logos/github.png" style="padding-right: 5px;"></a>
-    <a href="https://scholar.google.co.in/citations?user=6ElPOFAAAAAJ&hl=en&oi=ao"><img src="logos/scholar.png" style="height:32px;width:32px;padding-right:5px"></a>
-    <a href="https://www.linkedin.com/in/kaustubh-sakhalkar-191871b9/"><img src="logos/in.png" style="padding-right:5px"></a>
-    <a href="https://twitter.com/cos_cube_"><img src="logos/twitter.png" style="height:32px;width:32px;padding-right:5px"></a>
-    <a href="https://www.facebook.com/kaustubh.sakhalkar"><img src="logos/fb.png" style="height:32px;width:32px;padding-right:5px"></a>
-    <a href="https://www.instagram.com/cos_cube_/"><img src="logos/insta.png" style="height:32px;width:32px;padding-right:5px"></a>
-    
-
-    <hr>
-    <!-- INTRODUCTION -->
-    <h2>Introduction</h2>
-    <p align="justify">
-    I am a masters student at <a href ="https://saarland-informatics-campus.de/en/">Saarland University</a> (Universität des Saarlandes) in Germany since 2019.
-    Before that I was a computer vision engineer in the industry. I obtained my bachelors' degree in computer science and bioinformatics in 2018 from
-    <a href="https://vit.ac.in/">VIT University</a> in India. During my undergraduate studies, I had the opportunity to visit the 
-    <a href="https://team.inria.fr/stars/en/">STARS</a> team at <a href="https://www.inria.fr/en/centre-inria-sophia-antipolis-mediterranee">INRIA-Sophia</a>.
-    There, I was trying to find the most effective representations for learning human actions the we perform everyday in collaboration 
-    with <a href="http://www-sop.inria.fr/members/Francois.Bremond/">François Brémond</a>, <a href="https://sites.google.com/view/srijan-das/home">Srijan Das</a>, 
-    <a href="http://mkoperski.com/">Michal Koperski</a> and <a href="http://www-sop.inria.fr/members/Monique.Thonnat/">Monique Thonnat</a>.
-    Before that I was a computer vision research intern in Dr. <a href="https://scholar.google.co.in/citations?user=Sv_ONBAAAAAJ&hl=en">Ujjwal Bhattacharya</a>'s group at <a href="https://www.isical.ac.in/~ujjwal/">Indian Statistical Institute</a> in Kolkata where I was working on
-    text segmentation. 
-    </p>
-    <p align="justify">
-    I grew up in the quaint city of <a href="https://en.wikipedia.org/wiki/Pune">Pune</a>, India where I also did my schooling. 
-    I have a proclivity for chess, country music, good reads and hiking. 
-    I was also a part of <a href="https://vit.sedsindia.org/about%20us.html">SEDS-VIT</a> and <a href="https://github.com/CreationLabsVIT">creation labs</a>.
-    <i>Feel free to email me if you are looking for project collaborations</i>.
-    </p>
-
-    <!-- NEWS -->
-    <h2>News</h2>
-    <table class="news-table">
-        <tr>
-            <td >[APR20]</td>
-            <td>I will be attending <a href="http://mlss.tuebingen.mpg.de/2020/index.html">MLSS 2020</a> which is online this year. Say Hi at the event.</td>
-        </tr>
-
-        <tr>
-            <td>[SEP19]</td>
-            <td> Started graduate school at UdS.</td>
-        </tr>
-
-        <tr>
-            <td>[DEC18]</td>
-            <td>Attending ICVGIP'18 in Hyderabad. Short talk on my paper.</td>
-        </tr>
-
-        <tr>
-            <td>[JUL18]</td>
-            <td>3 papers accepted to different conferences. Big thank you to collaborators.</td>
-        </tr>
-
-        <tr>
-            <td>[MAY18]</td>
-            <td>Graduated from VIT</td>
-        </tr>
-    </table>
-
-    <!-- RESEARCH INTERESTS -->
-    <a name="Research"></a>
-    <hr>
-    <h2>Research</h2>
-    <p align="justify">
-    I have broad research interests in machine learning, computer vision, mathematical optimization and more recently image synthesis. I focus on the high level
-    aspects of computer vision but I also use mathematical optimization to solve problems in image processing. On the high level side of vision, I focus on video
-    understanding and particularly on problems like learning from limited labels, action recognition in videos, adversarial robustness and video synthesis.
-    </p>
-
-
-
-    <!-- PUBLICATIONS -->
-    <a name="Publications"></a>
-    <hr>
-    <h2>Publications</h2>
-    See <a href="https://scholar.google.co.in/citations?user=6ElPOFAAAAAJ&hl=en&oi=ao">google scholar</a> profile
-    <table>
-        <tr>
-            <th><h3>2019</h3></th>
-        </tr>
-        <tr>
-            <td><img src="images/mmm19.png" style="float:right;width:300px;border-radius: 0%;"></td>
-            <td>
-                <b>A New Hybrid Architecture for Human Activity Recognition from RGB-D videos</b><br>
-                <!-- Authors -->
-                Srijan Das, Monique Thonnat, <i>Kaustubh Sakhalkar</i>, Michal Koperski, Francois Bremond and Gianpiero Francesca. <br>
-                <!-- Conference -->
-                25th International Conference on MultiMedia Modeling, MMM 2019, in Thessaloniki, Greece, January 8-11, 2019. <br>
-                <!-- Links -->
-                <!-- PDF --> <a href="pdfs/MMM_2019.pdf">[pdf]</a>
-            </td>
-        </tr>
-
-        <tr>
-            <th><h3>2018</h3></th>
-        </tr>
-
-        <tr>
-            <td><img src="images/icvgip18.png" style="float:right;width:300px;border-radius: 0%"></td>
-            <td>
-                <b>Spatio-Temporal Grids for Daily Living Action Recognition</b><br>
-                <!-- Authors -->
-                Srijan Das, <i>Kaustubh Sakhalkar</i>, Michal Koperski, Francois Bremond <br>
-                <!-- Conference -->
-                11th Indian Conference on Computer Vision, Graphics and Image Processing (ICVGIP 2018) December 18 - 22, Hyderabad, India<br>
-                <!-- Links -->
-                <!-- PDF --> <a href="pdfs/ICVGIP_2018.pdf">[pdf]</a>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td><img src="images/IPAS.png" style="float:right;width:300px; border-radius: 0%"></td>
-            <td>
-                <b>Learning to Represent Spatio-Temporal Features for Fine Grained Action Recognition</b><br>
-                <!-- Authors -->
-                <i>Kaustubh Sakhalkar</i>, Francois Bremond <br>
-                <!-- Conference -->
-                IEEE international Image Processing Applications and Systems conference, Sophia Antipolis, France, 12-14 December,2018<br>
-                <!-- Links -->
-                <!-- PDF --> <a href="pdfs/Kaustubh_IPAS_2018.pdf">[pdf]</a>
-            </td>
-        </tr>
-    </table>
-
-
-
-
-
-
-    <!-- TALKS / TEACHING -->
-    <a name="Talks"></a>
-    <hr>
-    <h2>Talks / Teaching</h2>
-
-    <h3>2020</h3>
-    GVV: Seminar talk on hand object interactions <a href="https://drive.google.com/file/d/1WVP1KWjPf77Qa9dKBh9WYXLG08ooldKv/view?usp=sharing">[slides]</a>
-
-    <h3>2018</h3>
-            INRIA: Learning Deep Representations For Human Action Recognition 
-            <a href="https://docs.google.com/presentation/d/1LSVpzSTRCnMZoNg2pgmwFXK9zpLaA1hsZb-YHsaqRH0/edit?usp=sharing">[slides]</a>
-
-
-
-
-
-    <!-- PROJECTS -->
-    <a name="Projects"></a>
-    <hr>
-    <h2>Projects</h2>
-    (To update)<br>
-    Email me for full CV.
-
-
-
-
-    <!-- BLOG -->
-    <a name="Blog"></a>
-    <hr>
-    <h2>Blog</h2>
-    (To Update) <br>
-    <a href="https://sakhalkark.github.io/kaustubh-blog/">https://sakhalkark.github.io/kaustubh-blog/</a>
-
-</body>
-</html>
+{%- else %}
+<p class="empty-state">No posts yet &mdash; the first one is on its way.</p>
+{%- endif %}

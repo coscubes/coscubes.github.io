@@ -1,0 +1,90 @@
+# --- Site identity -----------------------------------------------------------
+title: Kaustubh Sakhalkar
+# Appended to the homepage <title> after your name — keep it short, it shows up
+# in browser tabs and search results.
+tagline: Machine learning and computer vision
+# The longer meta description used for SEO and social previews.
+description: >-
+  Machine learning and computer vision — notes on video understanding,
+  representation learning and the occasional detour into optimization.
+url: "https://coscubes.github.io"
+baseurl: ""
+lang: en
+
+author:
+  name: Kaustubh Sakhalkar
+# Displayed obfuscated in the footer to keep scrapers out, as on the old site.
+email_display: "sakhalkark [at] gmail [dot] com"
+email_display_alt: "s8kasakh [at] stud [dot] uni-saarland [dot] de"
+
+# Point this at a PDF in pdfs/ to show a "Download PDF" button on /cv/.
+# TODO: e.g. cv_pdf: pdfs/Kaustubh_Sakhalkar_CV.pdf
+cv_pdf:
+
+# Richer link previews on social platforms, via jekyll-seo-tag.
+twitter:
+  username: cos_cube_
+  card: summary
+social:
+  name: Kaustubh Sakhalkar
+  links:
+    - https://github.com/coscubes
+    - https://scholar.google.co.in/citations?user=6ElPOFAAAAAJ&hl=en&oi=ao
+    - https://www.linkedin.com/in/kaustubh-sakhalkar/
+    - https://twitter.com/cos_cube_
+
+# --- Navigation (the four tabs) ----------------------------------------------
+nav:
+  - title: Blog
+    url: /
+  - title: About
+    url: /about/
+  - title: Publications
+    url: /publications/
+
+# --- Build -------------------------------------------------------------------
+permalink: /blog/:title/
+excerpt_separator: <!--more-->
+paginate: 10
+paginate_path: "/page:num/"
+timezone: Europe/Berlin
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# GitHub Pages force-enables some plugins. Switch off the two that would
+# otherwise publish stray pages or hijack the homepage.
+optional_front_matter:
+  remove_originals: true
+readme_index:
+  enabled: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      # Keeps the Blog tab highlighted while reading a post.
+      nav_active: "/"
+
+# Overrides Jekyll's built-in exclude list, so the Gemfile entries must stay.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - DESIGN.md
+  - LICENSE

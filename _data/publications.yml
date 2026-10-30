@@ -1,0 +1,31 @@
+# One entry per paper, newest first. Rendered by publications.md.
+# Your own name is bolded automatically — write authors exactly as published.
+#
+#   - title:    paper title, no trailing period
+#     authors:  comma-separated, in publication order
+#     venue:    conference/journal, with location and dates
+#     year:     used for the section heading
+#     image:    optional thumbnail (keep under images/)
+#     pdf:      optional local PDF or external URL
+#     links:    optional extras, e.g. [{name: code, url: "..."}]
+
+- title: "A New Hybrid Architecture for Human Activity Recognition from RGB-D Videos"
+  authors: "Srijan Das, Monique Thonnat, Kaustubh Sakhalkar, Michal Koperski, Francois Bremond, Gianpiero Francesca"
+  venue: "25th International Conference on MultiMedia Modeling (MMM 2019), Thessaloniki, Greece, January 8–11, 2019"
+  year: 2019
+  image: images/mmm19.png
+  pdf: pdfs/MMM_2019.pdf
+
+- title: "Spatio-Temporal Grids for Daily Living Action Recognition"
+  authors: "Srijan Das, Kaustubh Sakhalkar, Michal Koperski, Francois Bremond"
+  venue: "11th Indian Conference on Computer Vision, Graphics and Image Processing (ICVGIP 2018), Hyderabad, India, December 18–22, 2018"
+  year: 2018
+  image: images/icvgip18.png
+  pdf: pdfs/ICVGIP_2018.pdf
+
+- title: "Learning to Represent Spatio-Temporal Features for Fine Grained Action Recognition"
+  authors: "Kaustubh Sakhalkar, Francois Bremond"
+  venue: "IEEE International Image Processing, Applications and Systems Conference (IPAS 2018), Sophia Antipolis, France, December 12–14, 2018"
+  year: 2018
+  image: images/IPAS.png
+  pdf: pdfs/Kaustubh_IPAS_2018.pdf

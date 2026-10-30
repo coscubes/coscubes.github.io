@@ -1,0 +1,23 @@
+{%- assign post = include.post -%}
+<li>
+  <article class="post-item">
+    <h2 class="post-item__title">
+      <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    </h2>
+    {%- assign summary = post.description | default: post.excerpt | strip_html | normalize_whitespace | strip -%}
+    {%- if summary != "" %}
+    <p class="post-item__excerpt">{{ summary | truncate: 200 }}</p>
+    {%- endif %}
+    <div class="post-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <span class="post-meta__sep">&middot;</span>
+      <span>{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      {%- if post.tags.size > 0 %}
+      <span class="post-meta__sep">&middot;</span>
+      {%- for tag in post.tags %}
+      <span class="tag">{{ tag }}</span>
+      {%- endfor %}
+      {%- endif %}
+    </div>
+  </article>
+</li>

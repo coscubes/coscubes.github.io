@@ -1,0 +1,18 @@
+# Social links. `icon` must match a case in _includes/icon.html:
+# github, scholar, linkedin, x, facebook, instagram, email, rss.
+
+- name: GitHub
+  icon: github
+  url: "https://github.com/sakhalkark"
+
+- name: Google Scholar
+  icon: scholar
+  url: "https://scholar.google.co.in/citations?user=6ElPOFAAAAAJ&hl=en&oi=ao"
+
+- name: LinkedIn
+  icon: linkedin
+  url: "https://www.linkedin.com/in/kaustubh-sakhalkar/"
+
+- name: X
+  icon: x
+  url: "https://twitter.com/cos_cube_"

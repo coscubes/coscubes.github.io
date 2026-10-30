@@ -1,0 +1,263 @@
+// Reset, document defaults and prose styling.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+// --- Headings ---------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 2.25rem 0 0.75rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: var(--fs-xl);
+}
+h2 {
+  font-size: var(--fs-lg);
+}
+h3 {
+  font-size: var(--fs-md);
+}
+h4,
+h5,
+h6 {
+  font-size: var(--fs-base);
+}
+
+// First heading in a flow shouldn't push the whole block down.
+h1:first-child,
+h2:first-child,
+h3:first-child {
+  margin-top: 0;
+}
+
+// --- Flow -------------------------------------------------------------------
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+table,
+pre,
+figure {
+  margin: 0 0 1.25rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+li > ul,
+li > ol {
+  margin: 0.35rem 0 0;
+}
+
+// GFM task lists: the checkbox stands in for the bullet.
+.task-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.task-list-item-checkbox {
+  margin-right: 0.45rem;
+  accent-color: var(--accent);
+}
+
+hr {
+  height: 1px;
+  margin: 2.5rem 0;
+  border: 0;
+  background: var(--border);
+}
+
+small {
+  font-size: var(--fs-sm);
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+// --- Links ------------------------------------------------------------------
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--accent-soft);
+  transition: text-decoration-color var(--transition), color var(--transition);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// --- Code -------------------------------------------------------------------
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  padding: 0.15em 0.35em;
+  background: var(--bg-subtle);
+  border-radius: var(--radius);
+}
+
+pre {
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  line-height: 1.55;
+
+  code {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+}
+
+// --- Quotes, media, tables --------------------------------------------------
+
+blockquote {
+  padding: 0.25rem 0 0.25rem 1.15rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+figure img {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+th,
+td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+}
+
+// --- Maths (KaTeX) ----------------------------------------------------------
+
+// Long display equations should scroll rather than widen the page on a phone.
+.katex-display {
+  padding: 0.35rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+// Shown instead of silently dropping maths KaTeX couldn't parse.
+.math-error {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  color: var(--syn-keyword);
+}
+
+// --- Footnotes (kramdown) ---------------------------------------------------
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+sup[role="doc-noteref"] a,
+.footnote {
+  text-decoration: none;
+}

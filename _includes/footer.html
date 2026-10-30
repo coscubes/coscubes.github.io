@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="wrap site-footer__row">
+    <div class="site-footer__meta">
+      <p>{{ site.email_display }}</p>
+      <p>
+        &copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}
+        <span class="post-meta__sep">·</span>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        <span class="post-meta__sep">·</span>
+        <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      </p>
+    </div>
+    {% include socials.html %}
+  </div>
+</footer>

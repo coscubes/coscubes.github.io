@@ -1,0 +1,23 @@
+---
+layout: page
+title: Archive
+subtitle: Every post, newest first.
+permalink: /archive/
+nav_active: /
+---
+{%- if site.posts.size > 0 %}
+{%- assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{%- for year in posts_by_year %}
+<h2 class="pub-year">{{ year.name }}</h2>
+<ul class="news">
+  {%- for post in year.items %}
+  <li>
+    <span class="news__date">{{ post.date | date: "%b %-d" }}</span>
+    <span><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></span>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endfor %}
+{%- else %}
+<p class="empty-state">No posts yet.</p>
+{%- endif %}

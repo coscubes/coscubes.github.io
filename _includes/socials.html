@@ -1,0 +1,8 @@
+<ul class="socials">
+  {%- for link in site.data.socials %}
+  <li>
+    <a href="{{ link.url | escape }}" aria-label="{{ link.name | escape }}" title="{{ link.name | escape }}"
+       rel="me noopener" target="_blank">{% include icon.html name=link.icon %}</a>
+  </li>
+  {%- endfor %}
+</ul>

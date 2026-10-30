@@ -1,0 +1,576 @@
+// Page chrome: header, nav, post list, publications, footer.
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 10;
+
+  &:focus {
+    left: var(--gutter);
+    top: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+// --- Header -----------------------------------------------------------------
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter);
+}
+
+.site-title {
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+
+  a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+}
+
+.site-nav {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-left: auto;
+  font-size: 0.9375rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: var(--fg);
+  }
+
+  &[aria-current="page"] {
+    color: var(--fg);
+    border-bottom-color: var(--accent);
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  color: var(--muted);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+
+  &:hover {
+    color: var(--fg);
+    border-color: var(--border);
+  }
+
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+}
+
+// The glyph advertises the scheme you'd switch *to*: a moon while light is
+// active, a sun while dark is. Order matters — explicit choices come last.
+.theme-toggle .icon-sun {
+  display: none;
+}
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: block;
+  }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: none;
+  }
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+// --- Main / footer ----------------------------------------------------------
+
+.site-main {
+  min-height: 60vh;
+  padding-bottom: 4rem;
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration-color: var(--border);
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.site-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-footer__meta p {
+  margin: 0 0 0.25rem;
+}
+
+.site-footer .socials {
+  margin-top: 0;
+}
+
+// --- Social icon row --------------------------------------------------------
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socials li {
+  margin: 0;
+}
+
+.socials a {
+  display: inline-flex;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition), transform var(--transition);
+
+  &:hover {
+    color: var(--fg);
+    transform: translateY(-1px);
+  }
+}
+
+.socials svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
+// --- Post list --------------------------------------------------------------
+
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-list > li {
+  margin: 0;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-list > li:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.post-item__title {
+  margin: 0 0 0.4rem;
+  font-size: var(--fs-md);
+
+  a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+}
+
+.post-item__excerpt {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.post-meta__sep {
+  opacity: 0.5;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--fg);
+    border-color: var(--muted);
+  }
+}
+
+.empty-state {
+  padding: 2rem 0;
+  color: var(--muted);
+}
+
+// --- Pagination -------------------------------------------------------------
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  font-size: 0.9375rem;
+}
+
+.pagination__page {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+// --- Single post ------------------------------------------------------------
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-header h1 {
+  margin: 0 0 0.6rem;
+  font-size: var(--fs-2xl);
+}
+
+.post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9375rem;
+}
+
+.post-nav__label {
+  display: block;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.post-nav__next {
+  text-align: right;
+  margin-left: auto;
+}
+
+// --- Page header ------------------------------------------------------------
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.4rem;
+}
+
+.page-header__sub {
+  margin: 0;
+  color: var(--muted);
+}
+
+// --- About page avatar ------------------------------------------------------
+
+.avatar {
+  float: right;
+  width: 160px;
+  height: 160px;
+  margin: 0 0 1.25rem 1.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+// --- Publications -----------------------------------------------------------
+
+.pub-year {
+  margin: 2.75rem 0 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-md);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub--no-image {
+  grid-template-columns: 1fr;
+}
+
+.pub__thumb {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  // Banner-shaped thumbnails vary in ratio, so let height follow width.
+  height: auto;
+}
+
+.pub__title {
+  margin: 0 0 0.35rem;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.pub__authors,
+.pub__venue {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.pub__venue {
+  font-style: italic;
+}
+
+.pub__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: var(--fs-sm);
+}
+
+.pub__links a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+
+  &:hover {
+    border-bottom-color: currentColor;
+  }
+}
+
+// --- Talks ------------------------------------------------------------------
+
+.talk-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.talk {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.talk__title {
+  margin: 0 0 0.2rem;
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
+
+.talk__venue {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+// --- Buttons (CV download) --------------------------------------------------
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--fg);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color var(--transition), color var(--transition);
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
+}
+
+// --- News list (About) ------------------------------------------------------
+
+.news {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.news__date {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.2rem;
+}
+
+// --- 404 --------------------------------------------------------------------
+
+.notfound {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+// --- Narrow screens ---------------------------------------------------------
+
+@media (max-width: 34rem) {
+  :root {
+    --gutter: 1rem;
+    --fs-2xl: 1.875rem;
+    --fs-xl: 1.5rem;
+  }
+
+  .site-header__inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .site-nav {
+    width: 100%;
+    margin-left: 0;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+
+  .pub {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .pub__thumb {
+    max-width: 320px;
+  }
+
+  .avatar {
+    float: none;
+    display: block;
+    margin: 0 0 1.5rem;
+  }
+
+  .news li {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+// --- Print ------------------------------------------------------------------
+
+@media print {
+  .site-nav,
+  .theme-toggle,
+  .site-footer,
+  .post-nav,
+  .skip-link {
+    display: none;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

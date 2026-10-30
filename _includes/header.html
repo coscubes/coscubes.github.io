@@ -1,0 +1,27 @@
+{%- comment -%}
+`nav_active` lets posts and paginated pages highlight the Blog tab; it falls
+back to the page's own URL for the static pages. Set in _config.yml defaults.
+{%- endcomment -%}
+{%- assign active = page.nav_active | default: page.url -%}
+<header class="site-header">
+  <div class="site-header__inner">
+    {%- comment -%}
+    The blog index has no heading of its own, so the site title becomes its
+    <h1> — every page keeps exactly one. Elsewhere the page's own title is the
+    <h1> and this is just the masthead. Styling is identical either way.
+    {%- endcomment -%}
+    {%- if page.is_blog_index %}
+    <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    {%- else %}
+    <p class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></p>
+    {%- endif %}
+    <nav class="site-nav" aria-label="Main">
+      {%- for item in site.nav %}
+      <a href="{{ item.url | relative_url }}"{% if active == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {%- endfor %}
+      <button class="theme-toggle" type="button" aria-label="Switch colour scheme" title="Switch colour scheme">
+        {% include icon.html name="sun" %}{% include icon.html name="moon" %}
+      </button>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,68 @@
+---
+layout: page
+title: Publications
+permalink: /publications/
+---
+{%- comment -%}
+This is a template, not content. Add papers to _data/publications.yml and
+talks to _data/talks.yml — you should never need to touch this file.
+{%- endcomment -%}
+
+<p>
+  Also listed on
+  <a href="https://scholar.google.co.in/citations?user=6ElPOFAAAAAJ&amp;hl=en&amp;oi=ao">Google&nbsp;Scholar</a>.
+</p>
+
+{%- capture author_bold -%}<strong>{{ site.author.name }}</strong>{%- endcapture -%}
+
+{%- assign by_year = site.data.publications | group_by: "year" %}
+{%- for group in by_year %}
+<h2 class="pub-year">{{ group.name }}</h2>
+<ul class="pub-list">
+  {%- for pub in group.items %}
+  <li class="pub{% unless pub.image %} pub--no-image{% endunless %}">
+    {%- if pub.image %}
+    <img class="pub__thumb" src="{{ pub.image | relative_url }}" alt="Figure from “{{ pub.title | escape }}”" loading="lazy">
+    {%- endif %}
+    <div>
+      <h3 class="pub__title">{{ pub.title | escape }}</h3>
+      <p class="pub__authors">
+        {{- pub.authors | escape | replace: site.author.name, author_bold -}}
+      </p>
+      <p class="pub__venue">{{ pub.venue | escape }}</p>
+      {%- if pub.pdf or pub.links %}
+      <div class="pub__links">
+        {%- if pub.pdf %}
+        <a href="{{ pub.pdf | relative_url }}">[pdf]</a>
+        {%- endif %}
+        {%- for link in pub.links %}
+        <a href="{{ link.url }}">[{{ link.name }}]</a>
+        {%- endfor %}
+      </div>
+      {%- endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endfor %}
+
+{%- if site.data.talks.size > 0 %}
+<h2>Talks &amp; teaching</h2>
+{%- assign talks_by_year = site.data.talks | group_by: "year" %}
+{%- for group in talks_by_year %}
+<h3 class="pub-year">{{ group.name }}</h3>
+<ul class="talk-list">
+  {%- for talk in group.items %}
+  <li class="talk">
+    <h4 class="talk__title">{{ talk.title | escape }}</h4>
+    <p class="talk__venue">
+      {{ talk.venue | escape }}
+      {%- for link in talk.links %}
+      <span class="post-meta__sep">&middot;</span> <a href="{{ link.url }}">[{{ link.name }}]</a>
+      {%- endfor %}
+    </p>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endfor %}
+{%- endif %}
